@@ -25,8 +25,8 @@ public class CrudStuffApplication {
 
 	private void createInstructor(AppDAO appDAO) {
 
-		Instructor instructor = new Instructor("Chad", "Darby", "darby@tidzcomp.com");
-		InstructorDetail instructorDetail = new InstructorDetail("http://www.tidztutos.com", "Podes crer");
+		Instructor instructor = new Instructor("Madhu", "Patel", "madhu@tidzcomp.com");
+		InstructorDetail instructorDetail = new InstructorDetail("http://www.tidztutos.com", "É nois");
 
 		instructor.setInstructorDetail(instructorDetail);
 
