@@ -22,19 +22,6 @@ public class CrudStuffApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-//			createInstructor(appDAO);
-//			findInstructor(appDAO);
-//			deleteInstructor(appDAO);
-//			findInstructorDetail(appDAO);
-//			deleteInstructorDetail(appDAO);
-//			createInstructorWithCourses(appDAO);
-//			findInstructorWithCourses(appDAO);
-//			findCoursesForInstructor(appDAO);
-//			findInstrucotrWithCoursesJoinFetch(appDAO);
-//			updateInstructor(appDAO);
-//			updateCourse(appDAO);
-//			deleteInstructorFromBeyond(appDAO);
-			deleteCourse(appDAO);
 		};
 	}
 
