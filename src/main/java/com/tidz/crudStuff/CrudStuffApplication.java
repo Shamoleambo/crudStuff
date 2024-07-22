@@ -21,8 +21,20 @@ public class CrudStuffApplication {
 		return runner -> {
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
-			deleteInstructor(appDAO);
+//			deleteInstructor(appDAO);
+			findInstructorDetail(appDAO);
 		};
+	}
+
+	private void findInstructorDetail(AppDAO appDAO) {
+		int id = 2;
+
+		InstructorDetail instructorDetail = appDAO.findInstructorDetailById(id);
+
+		System.out.println("InstructorDetail : " + instructorDetail);
+		System.out.println("The associated instructor: " + instructorDetail.getInstructor()	);
+		
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructor(AppDAO appDAO) {

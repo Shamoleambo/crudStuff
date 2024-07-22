@@ -1,6 +1,7 @@
 package com.tidz.crudStuff.dao;
 
 import com.tidz.crudStuff.entity.Instructor;
+import com.tidz.crudStuff.entity.InstructorDetail;
 
 public interface AppDAO {
 
@@ -9,4 +10,6 @@ public interface AppDAO {
 	Instructor findInstructorById(int id);
 
 	void deleteInstructorById(int id);
+
+	InstructorDetail findInstructorDetailById(int id);
 }
