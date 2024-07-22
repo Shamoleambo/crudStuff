@@ -33,8 +33,17 @@ public class CrudStuffApplication {
 //			findInstrucotrWithCoursesJoinFetch(appDAO);
 //			updateInstructor(appDAO);
 //			updateCourse(appDAO);
-			deleteInstructorFromBeyond(appDAO);
+//			deleteInstructorFromBeyond(appDAO);
+			deleteCourse(appDAO);
 		};
+	}
+
+	private void deleteCourse(AppDAO appDAO) {
+		int id = 10;
+		System.out.println("Deleting course id: " + id);
+
+		appDAO.deleteCourseById(id);
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructorFromBeyond(AppDAO appDAO) {
