@@ -103,7 +103,7 @@ public class Instructor {
 	}
 
 	public void add(Course course) {
-		if (course == null) {
+		if (courses == null) {
 			courses = new ArrayList<>();
 		}
 
