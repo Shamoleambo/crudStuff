@@ -1,5 +1,7 @@
 package com.tidz.crudStuff;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +28,25 @@ public class CrudStuffApplication {
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourses(appDAO);
-			findInstructorWithCourses(appDAO);
+//			findInstructorWithCourses(appDAO);
+			findCoursesForInstructor(appDAO);
 		};
+	}
+
+	private void findCoursesForInstructor(AppDAO appDAO) {
+		int id = 1;
+		System.out.println("Finding instructor id: " + id);
+		Instructor instructor = appDAO.findInstructorById(id);
+		System.out.println("instructor: " + instructor);
+
+		System.out.println("Finding courses for instructor id: " + id);
+		List<Course> courses = appDAO.findCoursesByInstructorId(id);
+
+		instructor.setCourses(courses);
+		System.out.println("the associated courses: " + instructor.getCourses());
+
+		System.out.println("Done!");
+
 	}
 
 	private void findInstructorWithCourses(AppDAO appDAO) {
