@@ -1,5 +1,8 @@
 package com.tidz.crudStuff.dao;
 
+import java.util.List;
+
+import com.tidz.crudStuff.entity.Course;
 import com.tidz.crudStuff.entity.Instructor;
 import com.tidz.crudStuff.entity.InstructorDetail;
 
@@ -12,6 +15,8 @@ public interface AppDAO {
 	void deleteInstructorById(int id);
 
 	InstructorDetail findInstructorDetailById(int id);
-	
+
 	void deleteInstructorDetailById(int id);
+
+	List<Course> findCoursesByInstructorId(int id);
 }
