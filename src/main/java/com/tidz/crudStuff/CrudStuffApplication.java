@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.tidz.crudStuff.dao.AppDAO;
+import com.tidz.crudStuff.entity.Course;
 import com.tidz.crudStuff.entity.Instructor;
 import com.tidz.crudStuff.entity.InstructorDetail;
 
@@ -23,8 +24,28 @@ public class CrudStuffApplication {
 //			findInstructor(appDAO);
 //			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+//			deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		Instructor instructor = new Instructor("Mano", "Dahora", "mano@tidzcomp.com");
+		InstructorDetail instructorDetail = new InstructorDetail("http://www.tidztutos", "Gírias");
+
+		instructor.setInstructorDetail(instructorDetail);
+
+		Course courseOne = new Course("Várias gíria");
+		Course courseTwo = new Course("Gestos maneiros");
+
+		instructor.add(courseOne);
+		instructor.add(courseTwo);
+
+		System.out.println("Saving instructor: " + instructor);
+		System.out.println("The courses: " + instructor.getCourses());
+
+		appDAO.save(instructor);
+		System.out.println("Done!");
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
