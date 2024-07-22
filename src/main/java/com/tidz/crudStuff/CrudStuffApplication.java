@@ -29,8 +29,21 @@ public class CrudStuffApplication {
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourses(appDAO);
 //			findInstructorWithCourses(appDAO);
-			findCoursesForInstructor(appDAO);
+//			findCoursesForInstructor(appDAO);
+			findInstrucotrWithCoursesJoinFetch(appDAO);
 		};
+	}
+
+	private void findInstrucotrWithCoursesJoinFetch(AppDAO appDAO) {
+		int id = 1;
+		System.out.println("Findind instructor id: " + id);
+
+		Instructor instructor = appDAO.findInstructorByJoinFetch(id);
+
+		System.out.println("instructor: " + instructor);
+		System.out.println("the associated courses: " + instructor.getCourses());
+
+		System.out.println("Done!");
 	}
 
 	private void findCoursesForInstructor(AppDAO appDAO) {
