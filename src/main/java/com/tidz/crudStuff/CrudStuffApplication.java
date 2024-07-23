@@ -12,6 +12,7 @@ import com.tidz.crudStuff.entity.Course;
 import com.tidz.crudStuff.entity.Instructor;
 import com.tidz.crudStuff.entity.InstructorDetail;
 import com.tidz.crudStuff.entity.Review;
+import com.tidz.crudStuff.entity.Student;
 
 @SpringBootApplication
 public class CrudStuffApplication {
@@ -23,7 +24,24 @@ public class CrudStuffApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
+			createCourseAndStudent(appDAO);
 		};
+	}
+
+	private void createCourseAndStudent(AppDAO appDAO) {
+		Course course = new Course("Pacman - how to score a lot!");
+
+		Student student1 = new Student("Mano", "Dahora", "mano@mail.com");
+		Student student2 = new Student("Truta", "Maneiro", "truta@mail.com");
+
+		course.add(student1);
+		course.add(student2);
+
+		System.out.println("Saving the course: " + course);
+		System.out.println("Associated students: " + course.getStudents());
+
+		appDAO.save(course);
+		System.out.println("Done!");
 	}
 
 	private void deleteCourseAndReviews(AppDAO appDAO) {
