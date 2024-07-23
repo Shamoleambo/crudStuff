@@ -26,8 +26,26 @@ public class CrudStuffApplication {
 		return runner -> {
 //			createCourseAndStudent(appDAO);
 //			findCourseAndStudents(appDAO);
-			findStudentAndCourses(appDAO);
+//			findStudentAndCourses(appDAO);
+			addMoreCoursesForStudent(appDAO);
 		};
+	}
+
+	private void addMoreCoursesForStudent(AppDAO appDAO) {
+		int id = 2;
+		Student student = appDAO.findStudentAndCoursesByStudentId(id);
+
+		Course course1 = new Course("Cars 101");
+		Course course2 = new Course("Talk to fishes advanced");
+
+		student.add(course1);
+		student.add(course2);
+
+		System.out.println("Updating student: " + student);
+		System.out.println("associated courses: " + student.getCourses());
+
+		appDAO.update(student);
+		System.out.println("Done!");
 	}
 
 	private void findStudentAndCourses(AppDAO appDAO) {
